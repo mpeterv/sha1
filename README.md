@@ -16,7 +16,7 @@ This module implements SHA-1 and HMAC-SHA1 in pure Lua. For better performance i
 
 ## Installation
 
-For installation using [LuaRocks](https://luarocks.org/): run `luarocks install sha1`.
+For installation using [LuaRocks](https://luarocks.org/) run `luarocks install sha1`.
 
 For manual installation copy `src/sha1` into a directory within `package.path`.
 
@@ -43,7 +43,7 @@ local hmac_as_data = sha1.hmac_binary(key, message)
 
 ## Testing
 
-To run the test suite ensure that [busted](http://olivinelabs.com/busted/) testing framework is install and run `busted`.
+To run the test suite ensure that [busted](http://olivinelabs.com/busted/) testing framework is installed and run `busted`.
 
 ## Credits
 
@@ -51,4 +51,4 @@ To run the test suite ensure that [busted](http://olivinelabs.com/busted/) testi
 
 ## License
 
-This version of the module, as well as all the previous ones on which it is based, are implemented under the MIT license (See LICENSE file for details).
+This version of the module, as well as all the previous ones on which it is based, are implemented under the MIT license (see LICENSE file for details).
