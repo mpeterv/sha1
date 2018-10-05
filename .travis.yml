@@ -24,12 +24,12 @@ script:
   - luacheck .
   - busted -c
   - if [[ "$LUA" == "lua 5.1" ]]; then
-    luarocks install luabitop
-    busted -c
-    luarocks remove luabitop
-    luarocks install bit32
-    busted -c
-  fi
+      luarocks install luabitop
+      busted -c
+      luarocks remove luabitop
+      luarocks install bit32
+      busted -c
+    fi
 
 after_script:
   - luacov
