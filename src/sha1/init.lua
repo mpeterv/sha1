@@ -36,6 +36,8 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.]]
 }
 
+sha1.version = "0.5.0"
+
 local function choose_ops_module()
    if _VERSION:find("5%.3") then
       return "sha1.lua53_ops"
