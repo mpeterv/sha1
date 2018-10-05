@@ -1,5 +1,7 @@
 local sha1 = require "sha1"
 
+-- luacheck: no max line length
+
 describe("sha1", function()
    it("is an alias for sha1.sha1", function()
       assert.equals(sha1(""), sha1.sha1(""))
