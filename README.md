@@ -4,7 +4,7 @@
 [![Test coverage](https://codecov.io/gh/mpeterv/sha1/branch/master/graph/badge.svg)](https://codecov.io/gh/mpeterv/sha1)
 [![License](https://img.shields.io/badge/License-MIT-brightgreen.svg)](LICENSE)
 
-This module implements SHA-1 and HMAC-SHA1 in pure Lua. For better performance it uses different bitwise operation implementations depending on environment:
+This module implements SHA-1 and HMAC-SHA-1 in pure Lua. For better performance it uses different bitwise operation implementations depending on environment:
 
 * On Lua 5.1:
   - Uses `bit` module provided by [luabitop](https://luarocks.org/modules/luarocks/luabitop) rock if it is available.
