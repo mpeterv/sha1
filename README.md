@@ -41,6 +41,42 @@ local hmac_as_hex = sha1.hmac(key, message)
 local hmac_as_data = sha1.hmac_binary(key, message)
 ```
 
+## Benchmarking
+
+Run `lua bench.lua` to benchmark `sha` (requires [argparse](https://github.com/mpeterv/argparse) and [luasocket](http://w3.impa.br/~diego/software/luasocket/)). See `lua bench.lua -h` for more options.
+
+Example results, running on a machine with Intel Core i7-7700HQ and DDR4 SDRAM:
+
+```
+Lua 5.1.5
+Start up: 0.016858 seconds
+SHA-1(1000 characters) 1000 times: 2.121885 seconds
+
+Lua 5.1.5 with luabitop installed:
+Start up: 0.001485 seconds
+SHA-1(1000 characters) 1000 times: 0.459673 seconds
+
+Lua 5.1.5 with bit32 installed:
+Start up: 0.001301 seconds
+SHA-1(1000 characters) 1000 times: 0.497699 seconds
+
+Lua 5.2.4
+Start up: 0.000355 seconds
+SHA-1(1000 characters) 1000 times: 0.529025 seconds
+
+Lua 5.3.5
+Start up: 0.000293 seconds
+SHA-1(1000 characters) 1000 times: 0.440408 seconds
+
+LuaJIT 2.0.5
+Start up: 0.000337 seconds
+SHA-1(1000 characters) 1000 times: 0.029341 seconds
+
+LuaJIT 2.1.0-beta3
+Start up: 0.000279 seconds
+SHA-1(1000 characters) 1000 times: 0.028905 seconds
+```
+
 ## Testing
 
 To run the test suite ensure that [busted](http://olivinelabs.com/busted/) testing framework is installed and run `busted`.
