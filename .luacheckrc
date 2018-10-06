@@ -1,2 +1,2 @@
-include_files = {"src", "spec", ".luacheckrc", "*.rockspec"}
+include_files = {"src", "spec", "bench.lua", ".luacheckrc", "*.rockspec"}
 std = "min"
