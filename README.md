@@ -8,7 +8,7 @@ This module implements SHA-1 and HMAC-SHA-1 in pure Lua. For better performance 
 
 * On Lua 5.1:
   - Uses `bit` module provided by [luabitop](https://luarocks.org/modules/luarocks/luabitop) rock if it is available.
-  - Otherwise, uses `bit32` module provided by [bit32](https://luarocks.org/modules/siffiejoe/bit32) if rock if it is available.
+  - Otherwise, uses `bit32` module provided by [bit32](https://luarocks.org/modules/siffiejoe/bit32) rock if it is available.
   - Otherwise, uses an implementation written in Lua.
 * On Lua 5.2: uses built-in `bit32` module.
 * On Lua 5.3: uses built-in bitwise operators.
