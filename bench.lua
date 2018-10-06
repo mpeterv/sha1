@@ -36,7 +36,6 @@ if _VERSION:find("5%.1") and not _G.jit then
       end
 
       package.loaded[args.module] = nil
-      package.preload[args.module == "bit" and "bit32" or "bit"] = error
    end
 
    if args.module ~= "bit" then
