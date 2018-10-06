@@ -52,7 +52,7 @@ local function make_op_cache(bit_op, bits)
    --             local v1 = half_cache[a1 * half_size + b1]
    --             local v2 = half_cache[a2 * half_size + b2]
    --             local v = v1 * half_size + v2
-   --             cache[a * size + b]
+   --             cache[a * size + b] = v
    --          end
    --       end
    --    end

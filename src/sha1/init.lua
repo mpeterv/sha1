@@ -111,7 +111,6 @@ function sha1.sha1(str)
 
       -- Extend the input vector.
       for i = 16, 79 do
-         -- For i = 16 to 79 let Wt = S1(Wt-3 XOR Wt-8 XOR Wt-14 XOR Wt-16).
          w[i] = uint32_lrot(uint32_xor_4(w[i - 3], w[i - 8], w[i - 14], w[i - 16]), 1)
       end
 
