@@ -29,13 +29,15 @@ cli:option("-m --module", "Module to use on Lua 5.1 (bit or bit32).", nil, {bit 
 
 local args = cli:parse()
 
-if _VERSION:find("5%.1") and not _G.jit then
+if _VERSION:find("5%.[12]") and not _G.jit then
    if args.module then
       if not pcall(require, args.module) then
          cli:error(("%s module is not available"):format(args.module))
       end
 
-      package.loaded[args.module] = nil
+      if not _VERSION:find("5%.2") and args.module == "bit32" then
+         package.loaded[args.module] = nil
+      end
    end
 
    if args.module ~= "bit" then

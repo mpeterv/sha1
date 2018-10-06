@@ -38,21 +38,19 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.]]
 
 sha1.version = "0.5.0"
 
-local function choose_ops_module()
+local function choose_ops()
    if _VERSION:find("5%.3") then
-      return "sha1.lua53_ops"
-   elseif _VERSION:find("5%.2") then
-      return "sha1.bit32_ops"
+      return "lua53_ops"
    elseif pcall(require, "bit") then
-      return "sha1.bit_ops"
+      return "bit_ops"
    elseif pcall(require, "bit32") then
-      return "sha1.bit32_ops"
+      return "bit32_ops"
    else
-      return "sha1.pure_lua_ops"
+      return "pure_lua_ops"
    end
 end
 
-local ops = require(choose_ops_module())
+local ops = require("sha1." .. choose_ops())
 local uint32_lrot = ops.uint32_lrot
 local byte_xor = ops.byte_xor
 local uint32_xor_3 = ops.uint32_xor_3

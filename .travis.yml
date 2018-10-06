@@ -29,6 +29,9 @@ script:
       luarocks remove luabitop;
       luarocks install bit32;
       busted -c;
+    elif [[ "$LUA" == "lua 5.2" ]]; then
+      luarocks install luabitop;
+      busted -c;
     fi
 
 after_script:

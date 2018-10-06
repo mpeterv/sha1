@@ -10,7 +10,9 @@ This module implements SHA-1 and HMAC-SHA-1 in pure Lua. For better performance 
   - Uses `bit` module provided by [luabitop](https://luarocks.org/modules/luarocks/luabitop) rock if it is available.
   - Otherwise, uses `bit32` module provided by [bit32](https://luarocks.org/modules/siffiejoe/bit32) rock if it is available.
   - Otherwise, uses an implementation written in Lua.
-* On Lua 5.2: uses built-in `bit32` module.
+* On Lua 5.2:
+  - Uses `bit` module if it is available.
+  - Otherwise, built-in `bit32` module.
 * On Lua 5.3: uses built-in bitwise operators.
 * On LuaJIT 2.x: uses built-in `bit` module.
 
@@ -48,33 +50,37 @@ Run `lua bench.lua` to benchmark `sha` (requires [argparse](https://github.com/m
 Example results, running on a machine with Intel Core i7-7700HQ and DDR4 SDRAM:
 
 ```
-Lua 5.1.5
-Start up: 0.016858 seconds
-SHA-1(1000 characters) 1000 times: 2.121885 seconds
+Lua 5.1.5:
+Start up: 0.021782 seconds
+SHA-1(1000 characters) 1000 times: 2.138502 seconds
 
 Lua 5.1.5 with luabitop installed:
-Start up: 0.001485 seconds
-SHA-1(1000 characters) 1000 times: 0.459673 seconds
+Start up: 0.000331 seconds
+SHA-1(1000 characters) 1000 times: 0.456484 seconds
 
 Lua 5.1.5 with bit32 installed:
-Start up: 0.001301 seconds
-SHA-1(1000 characters) 1000 times: 0.497699 seconds
+Start up: 0.000374 seconds
+SHA-1(1000 characters) 1000 times: 0.494986 seconds
 
-Lua 5.2.4
-Start up: 0.000355 seconds
-SHA-1(1000 characters) 1000 times: 0.529025 seconds
+Lua 5.2.4:
+Start up: 0.000378 seconds
+SHA-1(1000 characters) 1000 times: 0.534550 seconds
 
-Lua 5.3.5
-Start up: 0.000293 seconds
-SHA-1(1000 characters) 1000 times: 0.440408 seconds
+Lua 5.2.4 with luabitop installed:
+Start up: 0.000375 seconds
+SHA-1(1000 characters) 1000 times: 0.495986 seconds
 
-LuaJIT 2.0.5
-Start up: 0.000337 seconds
-SHA-1(1000 characters) 1000 times: 0.029341 seconds
+Lua 5.3.5:
+Start up: 0.000311 seconds
+SHA-1(1000 characters) 1000 times: 0.443598 seconds
 
-LuaJIT 2.1.0-beta3
-Start up: 0.000279 seconds
-SHA-1(1000 characters) 1000 times: 0.028905 seconds
+LuaJIT 2.0.5:
+Start up: 0.000248 seconds
+SHA-1(1000 characters) 1000 times: 0.029523 seconds
+
+LuaJIT 2.1.0-beta3:
+Start up: 0.000274 seconds
+SHA-1(1000 characters) 1000 times: 0.029297 seconds
 ```
 
 ## Testing
