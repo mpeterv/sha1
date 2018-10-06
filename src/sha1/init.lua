@@ -2,8 +2,8 @@ local common = require "sha1.common"
 
 local sha1 = {
    -- Meta fields retained for compatibility.
-   _VERSION     = "sha.lua 0.5.0",
-   _URL         = "https://github.com/kikito/sha.lua",
+   _VERSION     = "sha.lua 0.6.0",
+   _URL         = "https://github.com/mpeterv/sha1",
    _DESCRIPTION = [[
 SHA-1 secure hash and HMAC-SHA1 signature computation in Lua,
 using bit and bit32 modules and Lua 5.3 operators when available
@@ -36,7 +36,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.]]
 }
 
-sha1.version = "0.5.0"
+sha1.version = "0.6.0"
 
 local function choose_ops()
    if _VERSION:find("5%.3") then
