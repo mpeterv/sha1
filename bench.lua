@@ -25,6 +25,7 @@ end
 local cli = argparse("bench.lua", "sha1 benchmarking script.")
 cli:option("-c --count", "Number of strings to run sha1.sha1 on.", "1000", tonumber)
 cli:option("-l --length", "Length of each string.", "1000", tonumber)
+cli:option("-s --startups", "Number of times to load sha1.", "100", tonumber)
 cli:option("-m --module", "Module to use on Lua 5.1 (bit or bit32).", nil, {bit = "bit", bit32 = "bit32"})
 
 local args = cli:parse()
@@ -51,8 +52,16 @@ end
 
 local sha1
 
-bench_fn("Start up", function()
-   sha1 = require "sha1"
+bench_fn(("Start up %d times"):format(args.startups), function()
+   for _ = 1, args.startups do
+      sha1 = require "sha1"
+
+      for module_name in pairs(package.loaded) do
+         if module_name:find("^sha1") then
+            package.loaded[module_name] = nil
+         end
+      end
+   end
 end)
 
 gen_input_strings(args.length, args.count)
