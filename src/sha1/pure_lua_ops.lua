@@ -7,7 +7,7 @@ local uint32_to_bytes = common.uint32_to_bytes
 
 function ops.uint32_lrot(a, bits)
    local power = 2 ^ bits
-   local inv_power = 0x100000000 / power
+   local inv_power = 4294967296 / power
    local lower_bits = a % inv_power
    return (lower_bits * power) + ((a - lower_bits) / inv_power)
 end

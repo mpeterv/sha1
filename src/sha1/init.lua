@@ -140,7 +140,7 @@ function sha1.sha1(str)
             k = 0xCA62C1D6
          end
 
-         local temp = (uint32_lrot(a, 5) + f + e + k + w[i]) % 0x100000000
+         local temp = (uint32_lrot(a, 5) + f + e + k + w[i]) % 4294967296
          e = d
          d = c
          c = uint32_lrot(b, 30)
@@ -149,11 +149,11 @@ function sha1.sha1(str)
       end
 
       -- Add this chunk's hash to result so far.
-      h0 = (h0 + a) % 0x100000000
-      h1 = (h1 + b) % 0x100000000
-      h2 = (h2 + c) % 0x100000000
-      h3 = (h3 + d) % 0x100000000
-      h4 = (h4 + e) % 0x100000000
+      h0 = (h0 + a) % 4294967296
+      h1 = (h1 + b) % 4294967296
+      h2 = (h2 + c) % 4294967296
+      h3 = (h3 + d) % 4294967296
+      h4 = (h4 + e) % 4294967296
    end
 
    return sformat("%08x%08x%08x%08x%08x", h0, h1, h2, h3, h4)
